@@ -63,4 +63,6 @@ for i, task in enumerate(tasks):
             
         if os.path.exists(text_file_name) and os.path.exists(image_file_name):
             bot = telebot.TeleBot(BOT_TOKEN)
-            bot.send_photo(chat_id=CHAT_ID, caption=open(text_file_name, 'rt', encoding='UTF-8').read(), photo=open(image_file_name, 'rb'), parse_mode="Markdown")
+            bot.send_photo(chat_id=CHAT_ID, photo=open(image_file_name, 'rb'), disable_notification=True)
+            bot.send_message(chat_id=CHAT_ID, text=open(text_file_name, 'rt', encoding='UTF-8').read(), parse_mode="Markdown")
+
