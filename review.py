@@ -43,7 +43,7 @@ for i, task in enumerate(tasks):
                     ).choices[0].message.content
             open(text_file_name, 'wt', encoding="UTF-8").write(text)
 
-        if not os.path.exists(temp_image_file):
+        if not os.path.exists(temp_image_file) and not os.path.exists(image_file_name):
             image_prompt = task["image_prompt"]
             image_url = client.images.generate(
                 model=AI_IMAGE_MODEL,
@@ -60,6 +60,7 @@ for i, task in enumerate(tasks):
             webp_image = Image.open(temp_image_file)
             png_image = webp_image.convert("RGBA")
             png_image.save(image_file_name)
+            os.remove(temp_image_file)
             
         if os.path.exists(text_file_name) and os.path.exists(image_file_name):
             bot = telebot.TeleBot(BOT_TOKEN)
