@@ -37,6 +37,5 @@ class Project(CommonBlogger):
             ai_text_model='chatgpt-4o-latest',
             text_base_url='https://api.openai.com/v1',
             topic_word_limit=100,
-            send_text_with_image=True,
             **kwargs
         )
