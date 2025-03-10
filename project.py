@@ -36,5 +36,6 @@ class Project(CommonBlogger):
             first_post_date=datetime(2025, 3, 5),
             text_generator=OpenAITextGenerator(),
             topic_word_limit=100,
+            send_text_with_image=True,
             **kwargs
         )
