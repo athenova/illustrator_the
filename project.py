@@ -1,5 +1,7 @@
 from simple_blogger import CommonBlogger
 from simple_blogger.generators.OpenAIGenerator import OpenAITextGenerator
+from simple_blogger.senders.TelegramSender import TelegramSender
+from simple_blogger.senders.InstagramSender import InstagramSender
 from datetime import datetime
 
 class Project(CommonBlogger):
@@ -32,10 +34,10 @@ class Project(CommonBlogger):
 
     def __init__(self, **kwargs):
         super().__init__(
-            review_chat_id=-1002374309134,
             first_post_date=datetime(2025, 3, 5),
             text_generator=OpenAITextGenerator(),
             topic_word_limit=100,
-            send_text_with_image=True,
+            reviewer=TelegramSender(),
+            senders=[TelegramSender(channel_id=f"@illustrator_the"), InstagramSender(channel_token_name='ILLUSTRATOR_THE_TOKEN')],
             **kwargs
         )
