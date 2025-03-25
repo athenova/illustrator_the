@@ -40,7 +40,7 @@ class Project(CommonBlogger):
             topic_word_limit=100,
             reviewer=TelegramSender(),
             senders=[TelegramSender(channel_id=f"@illustrator_the")
-                     , InstagramSender(channel_token_name='ILLUSTRATOR_THE_TOKEN')
+                     , InstagramSender(channel_token_name='ILLUSTRATOR_THE_TOKEN', channel_id='9351594524905971')
                      , VkSender(group_id='229821765')],
             **kwargs
         ) 
